@@ -42,7 +42,7 @@ void TestExecutor::MeasureTestExecution(Solver& solver, std::string input_filena
 		std::chrono::duration_cast<std::chrono::microseconds>(stop - start).count());
 }
 
-void TestExecutor::RunAllTests(Solver& solver, Strategy strategy)
+void TestExecutor::RunAllTests(Solver& solver, Strategy strategy, int start_block, int start_test)
 {
 	std::string output_filename = ".\\Output\\" + solver.getShortName() + "_output.txt";
 	std::ofstream out(output_filename);
@@ -56,7 +56,7 @@ void TestExecutor::RunAllTests(Solver& solver, Strategy strategy)
 
 	std::cout << "\nExecuting tests for " << solver.getName() << " starts!";
 
-	for (int block_id = 0; block_id < tests.size(); block_id++)
+	for (int block_id = start_block; block_id < tests.size(); block_id++)
 	{
 		int tests_to_run = tests[block_id].tests_by_template;
 		
@@ -69,7 +69,7 @@ void TestExecutor::RunAllTests(Solver& solver, Strategy strategy)
 
 		std::cout << "\n\t" << solver.getName() << " Block #" << block_id << (divisior == 5 ? " (partially)" : "") << " started Progress : ";
 
-		for (int subtest_id = 0; subtest_id < tests_to_run; subtest_id++)
+		for (int subtest_id = start_test; subtest_id < tests_to_run; subtest_id++)
 		{
 			std::string filename_uniform = GenerateTestFilename(block_id, subtest_id, uniform_generator);
 			std::string filename_normal  = GenerateTestFilename(block_id, subtest_id, normal_generator);
@@ -81,13 +81,15 @@ void TestExecutor::RunAllTests(Solver& solver, Strategy strategy)
 			MeasureTestExecution(solver, filename_exp_min, out);
 			MeasureTestExecution(solver, filename_exp_max, out);
 
-			std::cout << "\n\t\t" << block_id << ":" << subtest_id << " done";
+			//std::cout << "\n\t\t" << block_id << ":" << subtest_id << " done";
 
-			/*if (int(subtest_id * 1. / tests_to_run * 20) !=
+			if (int(subtest_id * 1. / tests_to_run * 20) !=
 				int((subtest_id - 1) * 1. / tests_to_run * 20))
 			{
 				std::cout << "#";
-			}*/
+			}
 		}
+
+		start_test = 0;
 	}
 }

@@ -18,7 +18,7 @@ public:
 		Full
 	};
 
-	void RunAllTests(Solver& solver, Strategy strategy);
+	void RunAllTests(Solver& solver, Strategy strategy, int start_block = 0, int start_test = 0);
 
 };
 

@@ -47,3 +47,8 @@ void ClassicBin::print(std::ostream& out, bool value_only = true)
 		out << "]\n";
 	}
 }
+
+int ClassicBin::getCapacity()
+{
+	return capacity;
+}

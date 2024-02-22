@@ -16,5 +16,7 @@ public:
 
 	void print(std::ostream& out, bool value_only);
 
+	int getCapacity();
+
 };
 
