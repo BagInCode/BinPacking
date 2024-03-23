@@ -33,12 +33,14 @@ int main()
 	/*TE.RunAllTests(ShBF100000, TestExecutor::Strategy::SmallOnly);             Done */
 
 	/*TE.RunAllTests(WF, TestExecutor::Strategy::Full);                          Done */
-	TE.RunAllTests(SWF, TestExecutor::Strategy::Full);                         
-	TE.RunAllTests(ShWF10, TestExecutor::Strategy::Full);                      
-	TE.RunAllTests(ShWF100, TestExecutor::Strategy::Partially);                
-	TE.RunAllTests(ShWF1000, TestExecutor::Strategy::Partially);       
-	TE.RunAllTests(ShWF10000, TestExecutor::Strategy::SmallOnly);              
-	TE.RunAllTests(ShWF100000, TestExecutor::Strategy::SmallOnly);             
+	/*TE.RunAllTests(SWF, TestExecutor::Strategy::Full);                         Done */
+	/*TE.RunAllTests(ShWF10, TestExecutor::Strategy::Full);                      Done */
+	/*TE.RunAllTests(ShWF100, TestExecutor::Strategy::Partially);                Done */
+	/*TE.RunAllTests(ShWF1000, TestExecutor::Strategy::Partially);               Done */
+	/*TE.RunAllTests(ShWF10000, TestExecutor::Strategy::SmallOnly);              Done */
+	/*TE.RunAllTests(ShWF100000, TestExecutor::Strategy::SmallOnly);             Done */
+
+
 	
 	return 0;
 }
